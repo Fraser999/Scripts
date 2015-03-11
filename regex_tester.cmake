@@ -32,11 +32,11 @@ while(1)
   endif()
 
   while(1)
-    message("\nEnter string to test against regex \"${Regex}\" ('q' to quit, 'break' to enter new regex):")
+    message("\nEnter string to test against regex \"${Regex}\" ('q' to quit, 'b' to enter new regex):")
     read_line()
     ans(TestString)
 
-    if("${TestString}" MATCHES "[Qq]" OR "${TestString}" MATCHES "[Bb][Rr][Ee][Aa][Kk]")
+    if(TestString STREQUAL "q" OR TestString STREQUAL "Q" OR TestString STREQUAL "b" OR TestString STREQUAL "B")
       break()
     endif()
 
@@ -58,7 +58,7 @@ while(1)
 
   endwhile()
 
-  if("${TestString}" MATCHES "[Qq]")
+  if(TestString STREQUAL "q" OR TestString STREQUAL "Q")
     break()
   endif()
 endwhile()
